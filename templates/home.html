@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Saraswati College Chatbot</title>
+
+    <style>
+
+        body{
+            font-family: Arial, sans-serif;
+            background:#ece5dd;
+            margin:0;
+            padding:20px;
+        }
+
+        .chat-container{
+            width:700px;
+            margin:20px auto;
+            background:white;
+            border-radius:10px;
+            padding:20px;
+            height:70vh;
+            overflow-y:auto;
+            box-shadow:0 0 10px rgba(0,0,0,0.2);
+        }
+
+        .user{
+            text-align:right;
+            margin:10px 0;
+        }
+
+        .user span{
+            background:#dcf8c6;
+            padding:10px 15px;
+            border-radius:10px;
+            display:inline-block;
+            max-width:70%;
+        }
+
+        .bot{
+            text-align:left;
+            margin:10px 0;
+        }
+
+        .bot span{
+            background:#f1f0f0;
+            padding:10px 15px;
+            border-radius:10px;
+            display:inline-block;
+            max-width:70%;
+        }
+
+        .input-box{
+            width:700px;
+            margin:auto;
+            display:flex;
+            gap:10px;
+        }
+
+        input{
+            flex:1;
+            padding:12px;
+            border:1px solid #ccc;
+            border-radius:5px;
+        }
+
+        button{
+            padding:12px 20px;
+            border:none;
+            background:#007bff;
+            color:white;
+            border-radius:5px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:#0056b3;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="chat-container">
+
+    {% for chat in chats %}
+
+        <div class="user">
+            <span>{{ chat.user }}</span>
+        </div>
+
+        <div class="bot">
+            <span>{{ chat.bot }}</span>
+        </div>
+
+    {% endfor %}
+
+</div>
+
+<form method="POST" class="input-box">
+
+    <input
+        type="text"
+        name="query"
+        placeholder="Ask your question..."
+        required
+    >
+
+    <button type="submit">Send</button>
+
+</form>
+
+</body>
+</html>
